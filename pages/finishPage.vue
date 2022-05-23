@@ -4,7 +4,9 @@
       <img src="@/assets/images/finishPage.svg" alt="完成" />
 
       <div class="finishPage__header--tab">
-        <strong class="active" v-for="item in tabList" :key="item.id">{{ item.title }}</strong>
+        <strong class="active" v-for="item in tabList" :key="item.id">{{
+          item.title
+        }}</strong>
       </div>
     </div>
 
@@ -15,29 +17,35 @@
 <script>
 export default {
   head: {
-    title: "分析結果 - 台灣產業數位轉型量表TDX",
+    title: "分析結果 - 台灣產業數位轉型量表TDX"
   },
-  async asyncData({ $api, query }) {
-    const tabList = [{ id: 1, title: "量表結果摘要" }];
+  async asyncData({ $api, query, redirect }) {
+    if (!query.svid || !query.hash) {
+      redirect("/");
+    } else {
+      const tabList = [{ id: 1, title: "量表結果摘要" }];
 
-    const listQuery = {
-      svid: query.svid,
-      hash: query.hash,
-    };
+      const listQuery = {
+        svid: query.svid,
+        hash: query.hash
+      };
 
-    let list = [];
-    try {
-      const res = await $api.userReply.get(listQuery);
-      const { code, data } = res.data;
-      if (code === 200) {
-        list = data;
-      }
-    } catch (error) {
-      console.error(error);
+      let list = [];
+      await $api.userReply
+        .get(listQuery)
+        .then(res => {
+          const { code, data } = res.data;
+          if (code === 200) {
+            list = data;
+          }
+        })
+        .catch(err => {
+          console.error(err);
+        });
+
+      return { tabList, list };
     }
-
-    return { tabList, list };
-  },
+  }
 };
 </script>
 
