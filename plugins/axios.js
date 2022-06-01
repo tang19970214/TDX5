@@ -11,16 +11,16 @@ export default ({ $axios }, inject) => {
   service.setBaseURL(process.env.VUE_APP_BASE_API)
 
   service.interceptors.response.use((response) => {
-    if (response.data.code !== 200) {
-      Swal.fire({
-        icon: 'error',
-        title: response.data.message,
-        showConfirmButton: false,
-        timer: 1500
-      });
-    } else {
+    // if (response.data.code !== 200) {
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: response.data.message,
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   });
+    // } else {
       return response
-    }
+    // }
   }, (errorRes) => {
     switch (errorRes.response.status) {
       case 401:

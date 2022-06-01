@@ -34,6 +34,7 @@ export default {
     '~/plugins/api.js',
 
     { src: '~/plugins/element-ui.js', ssr: false },
+    { src: '~/plugins/sweet-alert.js', ssr: false },
     { src: '~/plugins/apexchart.js', ssr: false },
   ],
 

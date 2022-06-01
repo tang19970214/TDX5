@@ -4,11 +4,11 @@
       <img src="@/assets/images/finishPage.svg" alt="完成" />
 
       <div class="finishPage__header--tab">
-        <strong class="active" v-for="item in tabList" :key="item.id">{{ item.title }}</strong>
+        <strong class="active">量表結果摘要</strong>
       </div>
     </div>
 
-    <AllFinishPage :list="list" />
+    <AllFinishPage v-if="list.length > 0" :list="list" />
   </div>
 </template>
 
@@ -17,26 +17,53 @@ export default {
   head: {
     title: "分析結果 - 台灣產業數位轉型量表TDX",
   },
-  async asyncData({ $api, query }) {
-    const tabList = [{ id: 1, title: "量表結果摘要" }];
-
-    const listQuery = {
-      svid: query.svid,
-      hash: query.hash,
+  data() {
+    return {
+      list: [],
     };
+  },
+  methods: {
+    getList() {
+      const listQuery = {
+        svid: this.$route.query.svid,
+        hash: this.$route.query.hash,
+      };
 
-    let list = [];
-    try {
-      const res = await $api.userReply.get(listQuery);
-      const { code, data } = res.data;
-      if (code === 200) {
-        list = data;
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    return { tabList, list };
+      this.$api.userReply
+        .get(listQuery)
+        .then((res) => {
+          const { code, data } = res.data;
+          if (code === 200) {
+            this.list = data;
+          } else {
+            this.$swal
+              .fire({
+                icon: "error",
+                title: "資料傳輸有問題，請重新填寫，謝謝您！",
+                timer: 2000,
+                showConfirmButton: false,
+              })
+              .then(() => {
+                this.$router.push("/");
+              });
+          }
+        })
+        .catch(() => {
+          this.$swal
+            .fire({
+              icon: "error",
+              title: "資料傳輸有問題，請重新填寫，謝謝您！",
+              timer: 2000,
+              showConfirmButton: false,
+            })
+            .then(() => {
+              this.$router.push("/");
+            });
+        });
+    },
+  },
+  mounted() {
+    this.getList();
   },
 };
 </script>

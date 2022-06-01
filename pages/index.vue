@@ -102,8 +102,15 @@ export default {
           break;
         case "螺絲、螺帽及鉚釘製造業":
           url = "https://tier.surveycake.biz/s/l6Gy1";
+          break;
+        case "金屬製品製造業":
+          url = "https://tier.surveycake.biz/s/v2v66";
+          break;
+        case "塑膠製品製造業":
+          url = "https://tier.surveycake.biz/s/wewgO";
+          break;
         default:
-          url = "";
+          url = "https://tier.surveycake.biz/s/NwVbL";
           break;
       }
 
