@@ -61,9 +61,8 @@ export default {
       if (code === 200) {
         introduction = [
           { id: 1, title: "主旨", text: result.subject },
-          { id: 2, title: "期望", text: result.expect },
-          { id: 3, title: "幫助", text: result.help },
-          { id: 4, title: "聯絡", text: result.connection },
+          { id: 2, title: "對填答企業的幫助", text: result.help },
+          { id: 3, title: "聯絡人", text: result.connection },
         ];
       }
     } catch (error) {
@@ -90,6 +89,7 @@ export default {
         { id: 12, label: "化妝品製造業" },
         { id: 13, label: "金屬製品製造業" },
         { id: 14, label: "汽車及其零件製造業" },
+        { id: 15, label: "其他製造業" },
       ],
     };
   },

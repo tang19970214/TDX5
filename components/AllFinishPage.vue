@@ -461,13 +461,17 @@
 
     <div class="commonPage__commonCard commonPage__thirdCard">
       <div class="commonPage__thirdCard--header">
-        <strong>可以開啟網頁列印的方式轉成PDF下載，請確認以下設定</strong>
+        <strong>結果頁面PDF下載</strong>
       </div>
 
       <div class="commonPage__thirdCard--body">
-        <label>1. 顯示更多設定->頁首頁尾不用勾</label>
-        <label>2. 顯示更多設定->背景圖行要打勾</label>
-        <label>若產生跑版請調整適當縮放比例</label>
+        <label>開啟網頁列印，並選擇PDF下載</label>
+        <label>請確認以下設定：</label>
+        <ul>
+          <li>顯示更多設定->頁首頁尾不用勾</li>
+          <li>顯示更多設定->背景圖片要打勾</li>
+          <li>若產生跑版請調整適當縮放比例</li>
+        </ul>
       </div>
     </div>
   </div>
