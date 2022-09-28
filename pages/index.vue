@@ -21,7 +21,7 @@
 
       <div class="indexPage__introduce">
         <!-- 介紹 -->
-        <div class="indexPage__introduce--card" v-if="introduction">
+        <div class="indexPage__introduce--card" v-if="introduction.length > 0">
           <div class="introduce" v-for="item in introduction" :key="item.id">
             <!-- 介紹-標題 -->
             <div class="introduce__block">
@@ -34,7 +34,7 @@
             <!-- 介紹-內文 -->
             <!-- <p class="introduce__content" v-if="item.title !== '聯絡'">{{ item.text }}</p>
             <div style="margin-top: 12px" v-else> -->
-            <p class="introduce__content" v-for="(items, idx) in item.text.split('\n')" :key="idx">{{ items }}</p>
+            <p class="introduce__content" v-for="(items, idx) in item.text.split('<br/>')" :key="idx">{{ items }}</p>
             <!-- </div> -->
           </div>
         </div>
@@ -53,24 +53,6 @@
 
 <script>
 export default {
-  async asyncData({ $api }) {
-    let introduction = [];
-    try {
-      const res = await $api.explanationNote.get();
-      const { code, result } = res.data;
-      if (code === 200) {
-        introduction = [
-          { id: 1, title: "主旨", text: result.subject },
-          { id: 2, title: "對填答企業的幫助", text: result.help },
-          { id: 3, title: "聯絡人", text: result.connection },
-        ];
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    return { introduction };
-  },
   data() {
     return {
       industry: "",
@@ -91,9 +73,29 @@ export default {
         { id: 14, label: "汽車及其零件製造業" },
         { id: 15, label: "其他製造業" },
       ],
+      introduction: [],
     };
   },
+  mounted() {
+    this.getList();
+  },
   methods: {
+    async getList() {
+      try {
+        const {
+          data: { code, result },
+        } = await this.$api.explanationNote.get();
+        if (code === 200) {
+          this.introduction = [
+            { id: 1, title: "主旨", text: result.subject },
+            { id: 2, title: "對填答企業的幫助", text: result.help },
+            { id: 3, title: "聯絡人", text: result.connection },
+          ];
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
     goBasicInfo() {
       let url = "";
       switch (this.industry) {
