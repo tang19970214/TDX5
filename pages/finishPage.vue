@@ -6,6 +6,10 @@
       <div class="finishPage__header--tab">
         <strong class="active">量表結果摘要</strong>
       </div>
+
+      <div class="finishPage__header--desc">
+        <label>{{ getDesc() }}</label>
+      </div>
     </div>
 
     <AllFinishPage v-if="list.length > 0" :list="list" />
@@ -21,6 +25,28 @@ export default {
     return {
       list: [],
     };
+  },
+  computed: {
+    getDesc() {
+      return () => {
+        let str;
+        switch (this.$route.query.svid) {
+          case "p1GkR": // 紡織業
+            str = "「產業平均」、「產業高標」資料來源：彙整自70家紡織業者調查資料";
+            break;
+          case "v2v66": // 金屬製品製造業
+            str = "「產業平均」、「產業高標」資料來源：彙整自184家金屬製品業者調查資料(國內有工廠登記證，規模按母體分布)";
+            break;
+          case "wewgO": // 塑膠製品製造業
+            str = "「產業平均」、「產業高標」資料來源：彙整自179家塑膠製品業者調查資料(國內有工廠登記證，規模按母體分布)";
+            break;
+          default:
+            str = "「產業平均」、「產業高標」資料來源：彙整自超過1,000家國內製造業者調查資料";
+            break;
+        }
+        return str;
+      };
+    },
   },
   methods: {
     getList() {
@@ -139,11 +165,17 @@ export default {
       }
     }
 
+    &--desc {
+      margin-top: 8px;
+      color: rgb(54, 89, 140);
+      font-weight: 500;
+      font-size: 18px;
+    }
+
     &--subTitle {
       margin-top: 20px;
       font-size: 20px;
       color: rgb(54, 89, 140);
-      // line-height: 1.2;
       white-space: pre-wrap;
       overflow-wrap: break-word;
 

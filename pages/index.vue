@@ -32,10 +32,10 @@
               <strong class="introduce__block--title">{{ item.title }}</strong>
             </div>
             <!-- 介紹-內文 -->
-            <p class="introduce__content" v-if="item.title !== '聯絡'">{{ item.text }}</p>
-            <div style="margin-top: 12px" v-else>
-              <p class="introduce__content" v-for="items in item.text.split('\n')" :key="items.id">{{ items }}</p>
-            </div>
+            <!-- <p class="introduce__content" v-if="item.title !== '聯絡'">{{ item.text }}</p>
+            <div style="margin-top: 12px" v-else> -->
+            <p class="introduce__content" v-for="(items, idx) in item.text.split('\n')" :key="idx">{{ items }}</p>
+            <!-- </div> -->
           </div>
         </div>
 
@@ -101,7 +101,7 @@ export default {
           url = "https://tier.surveycake.biz/s/p1GkR";
           break;
         case "螺絲、螺帽及鉚釘製造業":
-          url = "https://tier.surveycake.biz/s/l6Gy1";
+          url = "https://tier.surveycake.biz/s/v2v66";
           break;
         case "金屬製品製造業":
           url = "https://tier.surveycake.biz/s/v2v66";
