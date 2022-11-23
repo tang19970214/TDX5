@@ -6,6 +6,7 @@
     "dev": "cross-env NODE_ENV=dev nuxt --port 8000",
     "build": "nuxt build",
     "start": "nuxt start",
+    "generateDev": "cross-env NODE_ENV=dev nuxt generate",
     "generate": "cross-env NODE_ENV=prod nuxt generate"
   },
   "dependencies": {

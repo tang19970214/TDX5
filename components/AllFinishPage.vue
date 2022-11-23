@@ -459,6 +459,7 @@
       </div>
     </div>
 
+    <!-- 結果頁面PDF下載 -->
     <div class="commonPage__commonCard commonPage__thirdCard">
       <div class="commonPage__thirdCard--header">
         <strong>結果頁面PDF下載</strong>
