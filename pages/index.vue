@@ -72,6 +72,8 @@ export default {
         { id: 13, label: "金屬製品製造業" },
         { id: 14, label: "汽車及其零件製造業" },
         { id: 15, label: "其他製造業" },
+        { id: 16, label: "食品製造業" },
+        { id: 17, label: "飲料製造頁" },
       ],
       introduction: [],
     };
@@ -110,6 +112,15 @@ export default {
           break;
         case "塑膠製品製造業":
           url = "https://tier.surveycake.biz/s/l6Gy1";
+          break;
+        case "化妝品製造業":
+          url = "https://tier.surveycake.biz/s/bLGN1";
+          break;
+        case "食品製造業":
+          url = "https://tier.surveycake.biz/s/v2v0w";
+          break;
+        case "飲料製造頁":
+          url = "https://tier.surveycake.biz/s/v2v0w";
           break;
         default:
           url = "https://tier.surveycake.biz/s/NwVbL";
