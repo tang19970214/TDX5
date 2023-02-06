@@ -115,10 +115,10 @@ export default {
         case "化妝品製造業":
           url = "https://tier.surveycake.biz/s/bLGN1";
           break;
-        case "食品製造業":
+        case "食品及飼品製造業":
           url = "https://tier.surveycake.biz/s/v2v0w";
           break;
-        case "飲料製造頁":
+        case "飲料製造業":
           url = "https://tier.surveycake.biz/s/v2v0w";
           break;
         default:
