@@ -57,22 +57,23 @@ export default {
     return {
       industry: "",
       industryList: [
-        { id: 1, label: "食品及飼品製造業" },
-        { id: 2, label: "飲料製造業" },
-        { id: 3, label: "紡織業" },
-        { id: 4, label: "化學材料及肥料製造業" },
-        { id: 5, label: "塑膠製品製造業" },
-        { id: 6, label: "橡膠製品製造業" },
-        { id: 7, label: "基本金屬製造業" },
-        { id: 8, label: "螺絲、螺帽及鉚釘製造業" },
-        { id: 9, label: "電子零組件製造業" },
-        { id: 10, label: "電腦、電子產品及光學製品製造業" },
-        { id: 11, label: "電力設備及配備製造業" },
-        { id: 12, label: "機械設備製造業" },
-        { id: 13, label: "化妝品製造業" },
-        { id: 14, label: "金屬製品製造業" },
-        { id: 15, label: "汽車及其零件製造業" },
-        { id: 16, label: "其他製造業" },
+        { id: 1, label: "工業區" },
+        { id: 2, label: "食品及飼品製造業" },
+        { id: 3, label: "飲料製造業" },
+        { id: 4, label: "紡織業" },
+        { id: 5, label: "化學材料及肥料製造業" },
+        { id: 6, label: "塑膠製品製造業" },
+        { id: 7, label: "橡膠製品製造業" },
+        { id: 8, label: "基本金屬製造業" },
+        { id: 9, label: "螺絲、螺帽及鉚釘製造業" },
+        { id: 10, label: "電子零組件製造業" },
+        { id: 11, label: "電腦、電子產品及光學製品製造業" },
+        { id: 12, label: "電力設備及配備製造業" },
+        { id: 13, label: "機械設備製造業" },
+        { id: 14, label: "化妝品製造業" },
+        { id: 15, label: "金屬製品製造業" },
+        { id: 16, label: "汽車及其零件製造業" },
+        { id: 17, label: "其他製造業" },
       ],
       introduction: [],
     };
@@ -120,6 +121,9 @@ export default {
           break;
         case "飲料製造業":
           url = "https://tier.surveycake.biz/s/v2v0w";
+          break;
+        case "工業區":
+          url = "https://tier.surveycake.biz/s/xN0Kz";
           break;
         default:
           url = "https://tier.surveycake.biz/s/NwVbL";

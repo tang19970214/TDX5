@@ -447,12 +447,12 @@
 
         <ul>
           <li>
-            <a href="https://www.ecos.org.tw/" target="_blank">雲市集工業館數位點數補助計畫</a>
+            <a :href="$route.query.svid === 'xN0Kz' ? 'https://reurl.cc/7R099y' : 'https://www.ecos.org.tw/'" target="_blank">雲市集工業館數位點數補助計畫</a>
           </li>
           <li>
             <a href="https://www.citd.moeaidb.gov.tw/cloud/web/atotal.aspx" target="_blank">雲世代數位轉型相關補助計畫與資源</a>
           </li>
-          <li>
+          <li v-if="$route.query.svid !== 'xN0Kz'">
             <a href="https://tiip.itnet.org.tw/" target="_blank">產業升級創新平台輔導計畫</a>
           </li>
         </ul>
