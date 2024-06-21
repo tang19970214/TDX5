@@ -57,7 +57,7 @@ export default {
     return {
       industry: "",
       industryList: [
-        { id: 1, label: "工業區" },
+        // { id: 1, label: "工業區" },
         { id: 2, label: "食品及飼品製造業" },
         { id: 3, label: "飲料製造業" },
         { id: 4, label: "紡織業" },
@@ -122,9 +122,9 @@ export default {
         case "飲料製造業":
           url = "https://tier.surveycake.biz/s/v2v0w";
           break;
-        case "工業區":
-          url = "https://tier.surveycake.biz/s/xN0Kz";
-          break;
+        // case "工業區":
+        //   url = "https://tier.surveycake.biz/s/xN0Kz";
+        //   break;
         default:
           url = "https://tier.surveycake.biz/s/NwVbL";
           break;
